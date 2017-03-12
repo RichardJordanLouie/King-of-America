@@ -3,13 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
-	public float speed = .05f;
-	// Use this for initialization
-	void Start () {
-		
+	public float speed = .035f;
+
+	bool facingRight = true;
+	Animator anim;
+	void Start()
+	{
+		anim = GetComponent<Animator> ();
 	}
-	
-	// Update is called once per frame
+
+	void Update()
+	{
+		if (facingRight == true) {
+			GetComponent<SpriteRenderer> ().flipX = false;
+		}
+		else if (facingRight == false) {
+			GetComponent<SpriteRenderer> ().flipX = true;
+		}
+	}
+
 	void FixedUpdate () {
 		Movement ();
 	}
@@ -19,30 +31,46 @@ public class PlayerMovement : MonoBehaviour {
 		if (Input.GetKey (KeyCode.W) && Input.GetKey (KeyCode.D)) {
 			thisPosition.y += speed / (Mathf.Sqrt(2f));
 			thisPosition.x += speed / (Mathf.Sqrt(2f));
+			facingRight = true;
+			anim.SetTrigger ("Right");
 		}
 		else if (Input.GetKey (KeyCode.W) && Input.GetKey (KeyCode.A)) {
 			thisPosition.y += speed / (Mathf.Sqrt(2f));
 			thisPosition.x -= speed / (Mathf.Sqrt(2f));
+			facingRight = false;
+			anim.SetTrigger ("Right");
 		}
 		else if (Input.GetKey (KeyCode.S) && Input.GetKey (KeyCode.D)) {
 			thisPosition.y -= speed / (Mathf.Sqrt(2f));
 			thisPosition.x += speed / (Mathf.Sqrt(2f));
+			facingRight = true;
+			anim.SetTrigger ("Right");
 		}
 		else if (Input.GetKey (KeyCode.S) && Input.GetKey (KeyCode.A)) {
 			thisPosition.y -= speed / (Mathf.Sqrt(2f));
 			thisPosition.x -= speed / (Mathf.Sqrt(2f));
+			facingRight = false;
+			anim.SetTrigger ("Right");
 		}
 		else if (Input.GetKey (KeyCode.W)) {
 			thisPosition.y += speed;
+			facingRight = true;
+			anim.SetTrigger ("Up");
 		}
 		else if (Input.GetKey (KeyCode.A)) {
 			thisPosition.x -= speed;
+			facingRight = false;
+			anim.SetTrigger ("Right");
 		}
 		else if (Input.GetKey (KeyCode.D)) {
 			thisPosition.x += speed;
+			facingRight = true;
+			anim.SetTrigger ("Right");
 		}
 		else if (Input.GetKey (KeyCode.S)) {
 			thisPosition.y -= speed;
+			facingRight = true;
+			anim.SetTrigger ("Down");
 		}
 		this.transform.position = thisPosition;
 	}
