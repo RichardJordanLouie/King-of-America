@@ -16,8 +16,23 @@ public class PlayerMovement : MonoBehaviour {
 
 	void Movement(){
 		Vector3 thisPosition = this.transform.position;
-
-		if (Input.GetKey (KeyCode.W)) {
+		if (Input.GetKey (KeyCode.W) && Input.GetKey (KeyCode.D)) {
+			thisPosition.y += speed / (Mathf.Sqrt(2f));
+			thisPosition.x += speed / (Mathf.Sqrt(2f));
+		}
+		else if (Input.GetKey (KeyCode.W) && Input.GetKey (KeyCode.A)) {
+			thisPosition.y += speed / (Mathf.Sqrt(2f));
+			thisPosition.x -= speed / (Mathf.Sqrt(2f));
+		}
+		else if (Input.GetKey (KeyCode.S) && Input.GetKey (KeyCode.D)) {
+			thisPosition.y -= speed / (Mathf.Sqrt(2f));
+			thisPosition.x += speed / (Mathf.Sqrt(2f));
+		}
+		else if (Input.GetKey (KeyCode.S) && Input.GetKey (KeyCode.A)) {
+			thisPosition.y -= speed / (Mathf.Sqrt(2f));
+			thisPosition.x -= speed / (Mathf.Sqrt(2f));
+		}
+		else if (Input.GetKey (KeyCode.W)) {
 			thisPosition.y += speed;
 		}
 		else if (Input.GetKey (KeyCode.A)) {
