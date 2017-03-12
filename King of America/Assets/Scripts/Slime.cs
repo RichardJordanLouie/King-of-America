@@ -17,6 +17,7 @@ public class Slime : MonoBehaviour {
 
 	private Vector2 moveDirection;
 
+	private bool facingRight = true;
 	void Start()
 	{
 		myBody = GetComponent<Rigidbody2D> ();
@@ -27,15 +28,22 @@ public class Slime : MonoBehaviour {
 
 	void Update () {
 		
-		timeToMoveCounter -= Time.deltaTime;
+		if (facingRight) {
+			GetComponent<SpriteRenderer> ().flipX = false;
+		} 
+		else if (!facingRight) {
+			GetComponent<SpriteRenderer> ().flipX = true;
+		}
 		if (health <= 0)
 			Destroy (gameObject);
 		if (moving) {
 			timeToMoveCounter -= Time.deltaTime;
 			myBody.velocity = moveDirection;
+			facingRight = myBody.velocity.x > 0;
 			if (timeToMoveCounter <= 0) {
 				moving = false;
 				timeBetweenMoveCounter = Random.Range(timeBetweenMovements * .5f, timeBetweenMovements);
+
 			}
 
 		}
@@ -49,5 +57,6 @@ public class Slime : MonoBehaviour {
 				moveDirection = new Vector2 (Random.Range(-1f,1f) * movementSpeed,Random.Range(-1f,1f) * movementSpeed);
 			}
 		}
+
 	}
 }
