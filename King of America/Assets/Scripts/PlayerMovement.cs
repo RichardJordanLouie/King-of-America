@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
-	public float speed = .035f;
 
-	bool facingRight = true;
+	public float speed = .035f; //how fast the player moves.
+	public int health = 25; //Player health
+	bool isDead; // is the player dead?
+	bool facingRight = true; //Is the player facing to the right
 	Animator anim;
 	void Start()
 	{
@@ -14,16 +16,21 @@ public class PlayerMovement : MonoBehaviour {
 
 	void Update()
 	{
+		isDead = health <= 0; // if health is less than or equal to zero, then player is dead.
 		if (facingRight == true) {
-			GetComponent<SpriteRenderer> ().flipX = false;
+			GetComponent<SpriteRenderer> ().flipX = false; // if player is facing to the right, then don't horizontally flip the sprite.
 		}
 		else if (facingRight == false) {
-			GetComponent<SpriteRenderer> ().flipX = true;
+			GetComponent<SpriteRenderer> ().flipX = true; // if player is not facing to the right, then horizontally flip the sprite.
 		}
+
+
 	}
 
 	void FixedUpdate () {
-		Movement ();
+		if (!isDead) {
+			Movement ();
+		}
 	}
 
 	void Movement(){
