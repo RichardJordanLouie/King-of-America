@@ -6,8 +6,8 @@ public class PlayerMovement : MonoBehaviour {
 
 	public float speed = .035f; //how fast the player moves.
 	public int health = 25; //Player health
-	bool isDead; // is the player dead?
-	bool facingRight = true; //Is the player facing to the right
+	private bool isDead; // is the player dead?
+	private bool facingRight = true; //Is the player facing to the right
 	Animator anim;
 	void Start()
 	{
@@ -16,6 +16,7 @@ public class PlayerMovement : MonoBehaviour {
 
 	void Update()
 	{
+		GetComponent<Rigidbody2D> ().velocity = Vector2.zero;
 		isDead = health <= 0; // if health is less than or equal to zero, then player is dead.
 		if (facingRight == true) {
 			GetComponent<SpriteRenderer> ().flipX = false; // if player is facing to the right, then don't horizontally flip the sprite.
@@ -36,46 +37,46 @@ public class PlayerMovement : MonoBehaviour {
 	void Movement(){
 		Vector3 thisPosition = this.transform.position;
 		if (Input.GetKey (KeyCode.W) && Input.GetKey (KeyCode.D)) {
-			thisPosition.y += speed / (Mathf.Sqrt(2f));
-			thisPosition.x += speed / (Mathf.Sqrt(2f));
+			thisPosition.y += (speed / (Mathf.Sqrt(2f))) * Time.deltaTime;
+			thisPosition.x += (speed / (Mathf.Sqrt(2f))) * Time.deltaTime;
 			facingRight = true;
 			anim.SetTrigger ("Right");
 		}
 		else if (Input.GetKey (KeyCode.W) && Input.GetKey (KeyCode.A)) {
-			thisPosition.y += speed / (Mathf.Sqrt(2f));
-			thisPosition.x -= speed / (Mathf.Sqrt(2f));
+			thisPosition.y += (speed / (Mathf.Sqrt(2f))) * Time.deltaTime;
+			thisPosition.x -= (speed / (Mathf.Sqrt(2f))) * Time.deltaTime;
 			facingRight = false;
 			anim.SetTrigger ("Right");
 		}
 		else if (Input.GetKey (KeyCode.S) && Input.GetKey (KeyCode.D)) {
-			thisPosition.y -= speed / (Mathf.Sqrt(2f));
-			thisPosition.x += speed / (Mathf.Sqrt(2f));
+			thisPosition.y -= (speed / (Mathf.Sqrt(2f))) * Time.deltaTime;
+			thisPosition.x += (speed / (Mathf.Sqrt(2f))) * Time.deltaTime;
 			facingRight = true;
 			anim.SetTrigger ("Right");
 		}
 		else if (Input.GetKey (KeyCode.S) && Input.GetKey (KeyCode.A)) {
-			thisPosition.y -= speed / (Mathf.Sqrt(2f));
-			thisPosition.x -= speed / (Mathf.Sqrt(2f));
+			thisPosition.y -= (speed / (Mathf.Sqrt(2f))) * Time.deltaTime;
+			thisPosition.x -= (speed / (Mathf.Sqrt(2f))) * Time.deltaTime;
 			facingRight = false;
 			anim.SetTrigger ("Right");
 		}
 		else if (Input.GetKey (KeyCode.W)) {
-			thisPosition.y += speed;
+			thisPosition.y += speed * Time.deltaTime;
 			facingRight = true;
 			anim.SetTrigger ("Up");
 		}
 		else if (Input.GetKey (KeyCode.A)) {
-			thisPosition.x -= speed;
+			thisPosition.x -= speed * Time.deltaTime;
 			facingRight = false;
 			anim.SetTrigger ("Right");
 		}
 		else if (Input.GetKey (KeyCode.D)) {
-			thisPosition.x += speed;
+			thisPosition.x += speed * Time.deltaTime;
 			facingRight = true;
 			anim.SetTrigger ("Right");
 		}
 		else if (Input.GetKey (KeyCode.S)) {
-			thisPosition.y -= speed;
+			thisPosition.y -= speed * Time.deltaTime;
 			facingRight = true;
 			anim.SetTrigger ("Down");
 		}

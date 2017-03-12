@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour {
 
-	bool facingRight;
-	bool facingLeft;
-	bool facingDown;
-	bool facingUp;
+	private bool facingRight;
+	private bool facingLeft;
+	private bool facingDown;
+	private bool facingUp;
 
-	bool facingDownLeft;
-	bool facingDownRight;
-	bool facingUpRight;
-	bool facingUpLeft;
+	private bool facingDownLeft;
+	private bool facingDownRight;
+	private bool facingUpRight;
+	private bool facingUpLeft;
 
 	public GameObject Right;
 	public GameObject Left;
@@ -24,10 +24,10 @@ public class PlayerAttack : MonoBehaviour {
 	public GameObject DownLeft;
 
 	public float coolDown;
-	float CD;
+	private float CD;
 
 	public float lifeTime;
-	float LF;
+	private float LF;
 	void Start()
 	{
 		facingUp = true;
