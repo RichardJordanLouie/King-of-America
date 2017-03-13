@@ -30,7 +30,7 @@ public class PlayerMovement : MonoBehaviour {
 		else if (facingRight == false) {
 			GetComponent<SpriteRenderer> ().flipX = true; // if player is not facing to the right, then horizontally flip the sprite.
 		}
-
+		Animation ();
 	}
 
 	void FixedUpdate () {
@@ -39,53 +39,57 @@ public class PlayerMovement : MonoBehaviour {
 		}
 	}
 
+	void Animation()
+	{
+		if (myBody.velocity.x == 0f && myBody.velocity.y == 0f) {
+			anim.SetBool ("moving", false);
+		}
+		else if (myBody.velocity.x != 0f || myBody.velocity.y != 0f) {
+			anim.SetBool ("moving", true);
+		}
+		anim.SetFloat ("speedX",Mathf.Abs(myBody.velocity.x));
+		anim.SetFloat ("speedY", myBody.velocity.y);
+	}
+
 	void Movement(){
 		if (Input.GetKey (KeyCode.W) && Input.GetKey (KeyCode.D)) {
 			myBody.velocity = new Vector2 ((speed / (Mathf.Sqrt(2f))) * Time.deltaTime,(speed / (Mathf.Sqrt(2f))) * Time.deltaTime);
 			facingRight = true;
-			anim.SetTrigger ("Right");
 			return;
 		}
 		else if (Input.GetKey (KeyCode.W) && Input.GetKey (KeyCode.A)) {
 			myBody.velocity = new Vector2 ((-speed / (Mathf.Sqrt(2f))) * Time.deltaTime,(speed / (Mathf.Sqrt(2f))) * Time.deltaTime);
 			facingRight = false;
-			anim.SetTrigger ("Right");
 			return;
 		}
 		else if (Input.GetKey (KeyCode.S) && Input.GetKey (KeyCode.D)) {
 			myBody.velocity = new Vector2 ((speed / (Mathf.Sqrt(2f))) * Time.deltaTime,(-speed / (Mathf.Sqrt(2f))) * Time.deltaTime);
 			facingRight = true;
-			anim.SetTrigger ("Right");
 			return;
 		}
 		else if (Input.GetKey (KeyCode.S) && Input.GetKey (KeyCode.A)) {
 			myBody.velocity = new Vector2 ((-speed / (Mathf.Sqrt(2f))) * Time.deltaTime,(-speed / (Mathf.Sqrt(2f))) * Time.deltaTime);
 			facingRight = false;
-			anim.SetTrigger ("Right");
 			return;
 		}
 		else if (Input.GetKey (KeyCode.W)) {
 			myBody.velocity = new Vector2 (0f,speed * Time.deltaTime);
 			facingRight = true;
-			anim.SetTrigger ("Up");
 			return;
 		}
 		else if (Input.GetKey (KeyCode.A)) {
 			myBody.velocity = new Vector2 (-speed * Time.deltaTime, 0);
 			facingRight = false;
-			anim.SetTrigger ("Right");
 			return;
 		}
 		else if (Input.GetKey (KeyCode.D)) {
 			myBody.velocity = new Vector2 (speed * Time.deltaTime,0);
 			facingRight = true;
-			anim.SetTrigger ("Right");
 			return;
 		}
 		else if (Input.GetKey (KeyCode.S)) {
 			myBody.velocity = new Vector2 (0f,-speed * Time.deltaTime);
 			facingRight = true;
-			anim.SetTrigger ("Down");
 			return;
 		}
 		myBody.velocity = new Vector2 (0f,0f);
