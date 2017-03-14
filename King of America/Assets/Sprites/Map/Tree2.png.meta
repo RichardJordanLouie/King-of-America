@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 7d3756eb8652e7d459b52d7285ab8a63
-timeCreated: 1489348953
+timeCreated: 1489458927
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -91,10 +91,10 @@ TextureImporter:
       name: Tree2 leaves
       rect:
         serializedVersion: 2
-        x: 3
-        y: 46
-        width: 124
-        height: 104
+        x: 8
+        y: 69
+        width: 172
+        height: 152
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -104,10 +104,10 @@ TextureImporter:
       name: Tree2 trunk
       rect:
         serializedVersion: 2
-        x: 52
+        x: 79
         y: 0
-        width: 26
-        height: 46
+        width: 38
+        height: 69
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

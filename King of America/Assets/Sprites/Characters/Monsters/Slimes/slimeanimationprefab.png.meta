@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: c32ce6319d56cb345a85b065955fe7fc
-timeCreated: 1489371437
+timeCreated: 1489459587
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -95,7 +95,7 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
   - buildTarget: Standalone
-    maxTextureSize: 2048
+    maxTextureSize: 1024
     textureFormat: 4
     textureCompression: 1
     compressionQuality: 50
@@ -125,10 +125,10 @@ TextureImporter:
       name: g1
       rect:
         serializedVersion: 2
-        x: 11
-        y: 400
-        width: 31
-        height: 30
+        x: 16
+        y: 599
+        width: 47
+        height: 47
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -138,10 +138,10 @@ TextureImporter:
       name: g2
       rect:
         serializedVersion: 2
-        x: 62
-        y: 401
-        width: 30
-        height: 29
+        x: 92
+        y: 600
+        width: 48
+        height: 46
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -151,10 +151,10 @@ TextureImporter:
       name: g3
       rect:
         serializedVersion: 2
-        x: 128
-        y: 400
-        width: 31
-        height: 29
+        x: 191
+        y: 599
+        width: 49
+        height: 45
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -164,10 +164,10 @@ TextureImporter:
       name: g4
       rect:
         serializedVersion: 2
-        x: 192
-        y: 401
-        width: 31
-        height: 29
+        x: 287
+        y: 600
+        width: 48
+        height: 47
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -177,10 +177,10 @@ TextureImporter:
       name: g5
       rect:
         serializedVersion: 2
-        x: 246
-        y: 401
-        width: 31
-        height: 29
+        x: 368
+        y: 600
+        width: 49
+        height: 46
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -190,10 +190,10 @@ TextureImporter:
       name: g6
       rect:
         serializedVersion: 2
-        x: 299
-        y: 401
-        width: 31
-        height: 29
+        x: 448
+        y: 600
+        width: 47
+        height: 46
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -203,10 +203,10 @@ TextureImporter:
       name: g7
       rect:
         serializedVersion: 2
-        x: 341
-        y: 401
-        width: 30
-        height: 29
+        x: 511
+        y: 600
+        width: 47
+        height: 46
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -216,10 +216,10 @@ TextureImporter:
       name: g8
       rect:
         serializedVersion: 2
-        x: 383
-        y: 402
-        width: 30
-        height: 30
+        x: 574
+        y: 602
+        width: 46
+        height: 46
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -229,10 +229,10 @@ TextureImporter:
       name: g9
       rect:
         serializedVersion: 2
-        x: 434
-        y: 402
-        width: 30
-        height: 30
+        x: 650
+        y: 602
+        width: 47
+        height: 47
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -242,10 +242,10 @@ TextureImporter:
       name: slimeanimationprefab_0
       rect:
         serializedVersion: 2
-        x: 45
-        y: 350
-        width: 29
-        height: 33
+        x: 67
+        y: 524
+        width: 45
+        height: 51
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -255,10 +255,10 @@ TextureImporter:
       name: slimeanimationprefab_1
       rect:
         serializedVersion: 2
-        x: 97
-        y: 350
-        width: 29
-        height: 33
+        x: 144
+        y: 524
+        width: 46
+        height: 51
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -268,10 +268,10 @@ TextureImporter:
       name: slimeanimationprefab_2
       rect:
         serializedVersion: 2
-        x: 146
-        y: 348
-        width: 29
-        height: 33
+        x: 218
+        y: 521
+        width: 46
+        height: 51
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -281,10 +281,10 @@ TextureImporter:
       name: slimeanimationprefab_3
       rect:
         serializedVersion: 2
-        x: 204
-        y: 348
-        width: 29
-        height: 33
+        x: 305
+        y: 521
+        width: 47
+        height: 51
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -294,10 +294,10 @@ TextureImporter:
       name: slimeanimationprefab_4
       rect:
         serializedVersion: 2
-        x: 261
-        y: 351
-        width: 29
-        height: 33
+        x: 391
+        y: 525
+        width: 45
+        height: 52
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -307,10 +307,10 @@ TextureImporter:
       name: slimeanimationprefab_5
       rect:
         serializedVersion: 2
-        x: 313
-        y: 352
-        width: 29
-        height: 33
+        x: 469
+        y: 528
+        width: 45
+        height: 50
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -320,10 +320,10 @@ TextureImporter:
       name: slimeanimationprefab_6
       rect:
         serializedVersion: 2
-        x: 362
-        y: 352
-        width: 29
-        height: 32
+        x: 542
+        y: 525
+        width: 46
+        height: 52
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -333,10 +333,10 @@ TextureImporter:
       name: slimeanimationprefab_7
       rect:
         serializedVersion: 2
-        x: 421
-        y: 350
-        width: 29
-        height: 33
+        x: 631
+        y: 525
+        width: 45
+        height: 50
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -346,10 +346,10 @@ TextureImporter:
       name: slimeanimationprefab_8
       rect:
         serializedVersion: 2
-        x: 473
-        y: 351
-        width: 31
-        height: 33
+        x: 709
+        y: 525
+        width: 48
+        height: 52
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -359,10 +359,10 @@ TextureImporter:
       name: slimeanimationprefab_9
       rect:
         serializedVersion: 2
-        x: 16
-        y: 296
-        width: 30
-        height: 34
+        x: 22
+        y: 443
+        width: 48
+        height: 52
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -372,10 +372,10 @@ TextureImporter:
       name: slimeanimationprefab_10
       rect:
         serializedVersion: 2
-        x: 66
-        y: 295
-        width: 30
-        height: 34
+        x: 99
+        y: 442
+        width: 46
+        height: 52
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -385,10 +385,10 @@ TextureImporter:
       name: slimeanimationprefab_11
       rect:
         serializedVersion: 2
-        x: 120
-        y: 293
-        width: 30
-        height: 34
+        x: 179
+        y: 438
+        width: 46
+        height: 52
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -398,10 +398,10 @@ TextureImporter:
       name: slimeanimationprefab_12
       rect:
         serializedVersion: 2
-        x: 168
-        y: 293
-        width: 30
-        height: 34
+        x: 251
+        y: 439
+        width: 46
+        height: 51
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -411,10 +411,10 @@ TextureImporter:
       name: slimeanimationprefab_13
       rect:
         serializedVersion: 2
-        x: 216
-        y: 292
-        width: 30
-        height: 34
+        x: 323
+        y: 437
+        width: 47
+        height: 52
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -424,10 +424,10 @@ TextureImporter:
       name: slimeanimationprefab_14
       rect:
         serializedVersion: 2
-        x: 269
-        y: 292
-        width: 30
-        height: 35
+        x: 403
+        y: 437
+        width: 47
+        height: 53
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -437,10 +437,10 @@ TextureImporter:
       name: slimeanimationprefab_15
       rect:
         serializedVersion: 2
-        x: 330
-        y: 290
-        width: 30
-        height: 34
+        x: 494
+        y: 434
+        width: 47
+        height: 52
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -450,10 +450,10 @@ TextureImporter:
       name: slimeanimationprefab_16
       rect:
         serializedVersion: 2
-        x: 387
-        y: 293
-        width: 30
-        height: 35
+        x: 580
+        y: 438
+        width: 47
+        height: 53
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -463,10 +463,10 @@ TextureImporter:
       name: slimeanimationprefab_17
       rect:
         serializedVersion: 2
-        x: 440
-        y: 295
-        width: 30
-        height: 34
+        x: 659
+        y: 441
+        width: 47
+        height: 52
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
