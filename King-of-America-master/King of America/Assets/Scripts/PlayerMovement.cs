@@ -5,8 +5,8 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour {
 
 	public float speed = .035f; //how fast the player moves.
-	private int health; //Player health
-	public int maximumHealth = 25;
+	public float health; //Player health
+	public float maximumHealth = 25;
 	private bool isDead; // is the player dead?
 	private bool facingRight = true; //Is the player facing to the right
 	public GameObject healthBar;
@@ -24,6 +24,9 @@ public class PlayerMovement : MonoBehaviour {
 	{
 		healthBar.transform.localScale = new Vector3 (health / maximumHealth, healthBar.transform.localScale.y, healthBar.transform.localScale.z);
 		isDead = health <= 0; // if health is less than or equal to zero, then player is dead.
+
+		if (health < 0)
+			health = 0;
 		if (facingRight == true) {
 			GetComponent<SpriteRenderer> ().flipX = false; // if player is facing to the right, then don't horizontally flip the sprite.
 		}
