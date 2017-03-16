@@ -9,6 +9,8 @@ public class Slime : MonoBehaviour {
 
 	private Rigidbody2D myBody;
 
+	public Transform SlimeSpawnPoint;
+
 	private bool moving;
 	public float timeBetweenMovements;
 	private float timeBetweenMoveCounter;
@@ -27,15 +29,16 @@ public class Slime : MonoBehaviour {
 	}
 
 	void Update () {
-		
+
+		DeadSlime ();
+
 		if (facingRight) {
 			GetComponent<SpriteRenderer> ().flipX = false;
 		} 
 		else if (!facingRight) {
 			GetComponent<SpriteRenderer> ().flipX = true;
 		}
-		if (health <= 0)
-			Destroy (gameObject);
+
 		if (moving) {
 			timeToMoveCounter -= Time.deltaTime;
 			myBody.velocity = moveDirection;
@@ -57,6 +60,13 @@ public class Slime : MonoBehaviour {
 				moveDirection = new Vector2 (Random.Range(-1f,1f) * movementSpeed,Random.Range(-1f,1f) * movementSpeed);
 			}
 		}
-
 	}
-}
+		public void DeadSlime () {
+		if (health == 0)
+			RespawnSlime ();
+		}
+		public void RespawnSlime () {
+		this.gameObject.transform.position = SlimeSpawnPoint.transform.position; 
+		health = 10;
+	}
+}		
