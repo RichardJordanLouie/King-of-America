@@ -6,6 +6,8 @@ public class PlayerAttackRange : MonoBehaviour {
 	public float damage = 5f;
 	float CD;
 	public float delayTime = 0.55f;
+	public GameObject hitPoint;
+	public GameObject damageNumber;
 
 	void Update()
 	{
@@ -21,6 +23,10 @@ public class PlayerAttackRange : MonoBehaviour {
 				float hp = col.transform.GetComponent<Slime> ().health;
 				col.transform.GetComponent<Slime>().health = Health.DamageHealth (hp, damage);
 				col.transform.GetComponent<Slime> ().hurtAnimation ();
+				if (col.transform.GetComponent<Slime> ().commenceDestruction == false) {
+					GameObject copy = Instantiate (damageNumber, hitPoint.transform.position, Quaternion.identity) as GameObject;
+					copy.GetComponent<DamageNumber> ().damageNumber = damage;
+				}
 			}
 		}
 	}

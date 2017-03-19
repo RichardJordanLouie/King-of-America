@@ -50,7 +50,6 @@ public class PlayerMovement : MonoBehaviour {
 		else if (stamina > maximumStamina)
 			stamina = maximumStamina;
 
-		dashDelay -= Time.deltaTime;
 		dashTime -= Time.deltaTime;
 		if (dashTime <= 0f) {
 			dashX = 0;
@@ -97,11 +96,13 @@ public class PlayerMovement : MonoBehaviour {
 			stamina -= 5f;
 			dashX = 3f;
 			amountPressedD = 0;
+			dashDelay = 0;
 			dashTime = dTime;
 		}
-		if ((dashDelay >= 5f && amountPressedD == 1) || (dashDelay >= 5f && amountPressedD == 2)) {
+		if ((dashDelay >= .5f && amountPressedD == 1) || (dashDelay >= .5f && amountPressedD == 2)) {
 			amountPressedD = 0;
 			dashX = 0f;
+			dashDelay = 0;
 		}
 
 		//Left Dash
@@ -119,10 +120,12 @@ public class PlayerMovement : MonoBehaviour {
 			dashX = -3f;
 			amountPressedA = 0;
 			dashTime = dTime;
+			dashDelay = 0;
 		}
-		if ((dashDelay >= 5f && amountPressedA == 1) || (dashDelay >= 5f && amountPressedA == 2)) {
+		if ((dashDelay >= .5f && amountPressedA == 1) || (dashDelay >= .5f && amountPressedA == 2)) {
 			amountPressedA = 0;
 			dashX = 0f;
+			dashDelay = 0;
 		}
 
 		//Up Dash
@@ -140,10 +143,12 @@ public class PlayerMovement : MonoBehaviour {
 			dashY = 3f;
 			amountPressedW = 0;
 			dashTime = dTime;
+			dashDelay = 0;
 		}
-		if ((dashDelay >= 5f && amountPressedW == 1) || (dashDelay >= 5f && amountPressedW == 2)) {
+		if ((dashDelay >= .5f && amountPressedW == 1) || (dashDelay >= .5f && amountPressedW == 2)) {
 			amountPressedW = 0;
 			dashY = 0f;
+			dashDelay = 0;
 		}
 
 		//Down Dash
@@ -155,16 +160,19 @@ public class PlayerMovement : MonoBehaviour {
 		} 
 		if (amountPressedS == 1 && dashDelay < 0.5f) {
 			dashDelay += Time.deltaTime;
+
 		}
 		if (amountPressedS == 2 && dashDelay < 0.5f && stamina >= 5f) {
 			stamina -= 5f;
 			dashY = -3f;
 			amountPressedS = 0;
 			dashTime = dTime;
+			dashDelay = 0;
 		}
-		if ((dashDelay >= 5f && amountPressedS == 1) || (dashDelay >= 5f && amountPressedS == 2)) {
+		if ((dashDelay >= .5f && amountPressedS == 1) || (dashDelay >= .5f && amountPressedS == 2)) {
 			amountPressedS = 0;
 			dashY = 0f;
+			dashDelay = 0;
 		}
 	}
 
@@ -173,4 +181,5 @@ public class PlayerMovement : MonoBehaviour {
 		myBody.velocity = new Vector2 (Input.GetAxisRaw("Horizontal") + dashX ,Input.GetAxisRaw("Vertical") + dashY) * speed * Time.deltaTime;
 
 	}
+
 }

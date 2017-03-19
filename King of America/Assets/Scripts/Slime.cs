@@ -24,9 +24,11 @@ public class Slime : MonoBehaviour {
 	[HideInInspector]
 	public bool hurt;
 	public GameObject HealthBar;
+	public GameObject damageBurst;
 	Animator anim;
 
-	private bool commenceDestruction;
+	[HideInInspector]
+	public bool commenceDestruction;
 	public float destroyTimer;
 
 	void Start()
@@ -80,6 +82,9 @@ public class Slime : MonoBehaviour {
 
 	public void hurtAnimation()
 	{
-		anim.SetTrigger ("hurt");
+		if (!commenceDestruction) {
+			anim.SetTrigger ("hurt");
+			GameObject copy = Instantiate (damageBurst, transform.position, Quaternion.identity) as GameObject;
+		}
 	}
 }		
