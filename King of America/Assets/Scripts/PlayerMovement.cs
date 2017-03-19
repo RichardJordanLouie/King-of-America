@@ -30,9 +30,6 @@ public class PlayerMovement : MonoBehaviour {
 		if (health < 0)
 			health = 0;
 		Animation ();
-		if (isAttacking) {
-			print (isAttacking);
-		}
 	}
 
 	void FixedUpdate () {

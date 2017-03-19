@@ -29,6 +29,7 @@ public class PlayerAttack : MonoBehaviour {
 			GetComponent<Rigidbody2D> ().velocity = Vector2.zero;
 		}
 		if (CD <= 0f) {
+			
 			GetComponent<PlayerMovement> ().isAttacking = false;
 		}
 	}

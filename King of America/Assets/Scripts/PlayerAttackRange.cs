@@ -3,14 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerAttackRange : MonoBehaviour {
-	public int damage = 5;
+	public float damage = 5f;
+	float CD;
+	public float delayTime = 0.55f;
 
-	void OnCollisionEnter2D (Collision2D col)
+	void Update()
+	{
+		CD -= Time.deltaTime;
+
+	}
+
+	void OnTriggerEnter2D (Collider2D col)
 	{
 		if (col.transform.tag == "Enemy") {
-			if (col.transform.GetComponent<Slime> ()) {
+			if (col.transform.GetComponent<Slime> () && CD <= 0f) {
+				CD = delayTime;
 				float hp = col.transform.GetComponent<Slime> ().health;
 				col.transform.GetComponent<Slime>().health = Health.DamageHealth (hp, damage);
+				col.transform.GetComponent<Slime> ().hurtAnimation ();
 			}
 		}
 	}

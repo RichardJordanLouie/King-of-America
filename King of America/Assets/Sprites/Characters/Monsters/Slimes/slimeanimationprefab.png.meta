@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: c32ce6319d56cb345a85b065955fe7fc
-timeCreated: 1489459587
+timeCreated: 1489895668
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -40,6 +40,9 @@ TextureImporter:
     21300066: slimeanimationprefab_15
     21300068: slimeanimationprefab_16
     21300070: slimeanimationprefab_17
+    21300072: slimeanimationprefab_18
+    21300074: slimeanimationprefab_19
+    21300076: slimeanimationprefab_20
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -467,6 +470,45 @@ TextureImporter:
         y: 441
         width: 47
         height: 52
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: slimeanimationprefab_18
+      rect:
+        serializedVersion: 2
+        x: 557
+        y: 134
+        width: 48
+        height: 53
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: slimeanimationprefab_19
+      rect:
+        serializedVersion: 2
+        x: 484
+        y: 144
+        width: 50
+        height: 51
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: slimeanimationprefab_20
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 149
+        width: 48
+        height: 47
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
