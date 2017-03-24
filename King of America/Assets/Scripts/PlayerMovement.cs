@@ -179,6 +179,12 @@ public class PlayerMovement : MonoBehaviour {
 	void Movement(){
 		
 		myBody.velocity = new Vector2 (Input.GetAxisRaw("Horizontal") + dashX ,Input.GetAxisRaw("Vertical") + dashY) * speed * Time.deltaTime;
+		if (Input.GetAxisRaw ("Horizontal") != 0 && Input.GetAxisRaw ("Vertical") != 0) {
+			anim.SetBool ("diagonal", true);
+		}
+		else {
+			anim.SetBool ("diagonal", false);
+		}
 
 	}
 
