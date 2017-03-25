@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: c32ce6319d56cb345a85b065955fe7fc
-timeCreated: 1489895668
+timeCreated: 1490458524
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -75,7 +75,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 32
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
@@ -128,10 +128,10 @@ TextureImporter:
       name: g1
       rect:
         serializedVersion: 2
-        x: 16
-        y: 599
-        width: 47
-        height: 47
+        x: 15
+        y: 598
+        width: 50
+        height: 48
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,10 +141,10 @@ TextureImporter:
       name: g2
       rect:
         serializedVersion: 2
-        x: 92
+        x: 91
         y: 600
-        width: 48
-        height: 46
+        width: 50
+        height: 48
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -154,10 +154,10 @@ TextureImporter:
       name: g3
       rect:
         serializedVersion: 2
-        x: 191
-        y: 599
-        width: 49
-        height: 45
+        x: 190
+        y: 600
+        width: 50
+        height: 48
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -167,10 +167,10 @@ TextureImporter:
       name: g4
       rect:
         serializedVersion: 2
-        x: 287
+        x: 286
         y: 600
-        width: 48
-        height: 47
+        width: 50
+        height: 48
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -180,10 +180,10 @@ TextureImporter:
       name: g5
       rect:
         serializedVersion: 2
-        x: 368
-        y: 600
-        width: 49
-        height: 46
+        x: 367
+        y: 598
+        width: 50
+        height: 48
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -193,10 +193,10 @@ TextureImporter:
       name: g6
       rect:
         serializedVersion: 2
-        x: 448
-        y: 600
-        width: 47
-        height: 46
+        x: 447
+        y: 598
+        width: 50
+        height: 48
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -206,10 +206,10 @@ TextureImporter:
       name: g7
       rect:
         serializedVersion: 2
-        x: 511
-        y: 600
-        width: 47
-        height: 46
+        x: 510
+        y: 597
+        width: 50
+        height: 48
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -219,10 +219,10 @@ TextureImporter:
       name: g8
       rect:
         serializedVersion: 2
-        x: 574
-        y: 602
-        width: 46
-        height: 46
+        x: 573
+        y: 598
+        width: 50
+        height: 48
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -232,10 +232,10 @@ TextureImporter:
       name: g9
       rect:
         serializedVersion: 2
-        x: 650
-        y: 602
-        width: 47
-        height: 47
+        x: 649
+        y: 600
+        width: 50
+        height: 48
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

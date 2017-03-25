@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PixelPerfectCamera : MonoBehaviour {
 
-	void Awake()
+	void Start()
 	{
 		var camera = GetComponent<Camera> ();
 		if (camera.orthographic) {

@@ -10,6 +10,7 @@ public class Slime : MonoBehaviour {
 	public float movementSpeed = .015f;
 
 	private Rigidbody2D myBody;
+	private Vector2 direction;
 
 	private bool moving;
 	public float timeBetweenMovements;
@@ -35,9 +36,9 @@ public class Slime : MonoBehaviour {
 	{
 		anim = GetComponent<Animator> ();
 		health = maximumHealth;
-		myBody = GetComponent<Rigidbody2D> ();
-		timeBetweenMoveCounter = Random.Range(timeBetweenMovements * .5f, timeBetweenMovements);
-		timeToMoveCounter = Random.Range(timeToMove * .75f, timeToMove);
+		myBody = this.gameObject.GetComponent<Rigidbody2D> ();
+		timeBetweenMoveCounter = Random.Range(timeBetweenMovements * .3f, timeBetweenMovements);
+		timeToMoveCounter = Random.Range(timeToMove * .25f, timeToMove);
 	}
 
 	void Update () {
@@ -45,8 +46,8 @@ public class Slime : MonoBehaviour {
 		HealthBar.GetComponent<SpriteRenderer> ().transform.localScale = new Vector3 (Mathf.Clamp(health / maximumHealth,0, 1f), HealthBar.GetComponent<SpriteRenderer> ().transform.localScale.y, HealthBar.GetComponent<SpriteRenderer> ().transform.localScale.z);
 		anim.SetFloat ("hp", health);
 		if (commenceDestruction) {
-			myBody.velocity = Vector2.zero;
 			destroyTimer -= Time.deltaTime;
+			myBody.velocity = Vector2.zero;
 		}
 		if (destroyTimer <= 0) {
 			Destroy (gameObject);
@@ -55,26 +56,29 @@ public class Slime : MonoBehaviour {
 			
 			if (facingRight) {
 				GetComponent<SpriteRenderer> ().flipX = false;
-			} else if (!facingRight) {
+			} 
+			else if (!facingRight) {
 				GetComponent<SpriteRenderer> ().flipX = true;
 			}
 
 			if (moving) {
 				timeToMoveCounter -= Time.deltaTime;
-				myBody.velocity = moveDirection;
 				facingRight = myBody.velocity.x > 0;
+				myBody.velocity = direction * movementSpeed * Time.deltaTime;
 				if (timeToMoveCounter <= 0) {
 					moving = false;
-					timeBetweenMoveCounter = Random.Range (timeBetweenMovements * .5f, timeBetweenMovements);
+					timeBetweenMoveCounter = Random.Range (timeBetweenMovements * .3f, timeBetweenMovements);
 				}
-			} else if (!moving) {
+
+			} 
+			else if (!moving) {
 				timeBetweenMoveCounter -= Time.deltaTime;
 				myBody.velocity = Vector2.zero;
 				if (timeBetweenMoveCounter <= 0f) {
 					moving = true;
-					timeToMoveCounter = Random.Range (timeToMove * .75f, timeToMove);
-
-					moveDirection = new Vector2 (Random.Range (-1f, 1f) * movementSpeed, Random.Range (-1f, 1f) * movementSpeed);
+					timeToMoveCounter = Random.Range (timeToMove * .25f, timeToMove);
+					direction = new Vector2 (Random.Range(-1,2),Random.Range(-1,2));
+				
 				}
 			}
 		}
