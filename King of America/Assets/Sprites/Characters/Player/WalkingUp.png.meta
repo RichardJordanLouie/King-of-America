@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 4c8534aa0f1920443a23d0e05ed55681
-timeCreated: 1489457894
+timeCreated: 1490480171
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -91,10 +91,10 @@ TextureImporter:
       name: WalkingUp_0
       rect:
         serializedVersion: 2
-        x: 12
-        y: 102
-        width: 54
-        height: 100
+        x: 10
+        y: 101
+        width: 59
+        height: 103
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -104,10 +104,10 @@ TextureImporter:
       name: WalkingUp_1
       rect:
         serializedVersion: 2
-        x: 12
+        x: 10
         y: 0
-        width: 54
-        height: 99
+        width: 59
+        height: 101
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

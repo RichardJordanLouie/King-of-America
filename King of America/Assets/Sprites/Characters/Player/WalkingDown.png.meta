@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 8cada6054a6526b418355e69ff61a1f1
-timeCreated: 1489459963
+timeCreated: 1490480134
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -91,9 +91,9 @@ TextureImporter:
       name: WalkingDown_0
       rect:
         serializedVersion: 2
-        x: 21
+        x: 19
         y: 101
-        width: 54
+        width: 58
         height: 103
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -104,9 +104,9 @@ TextureImporter:
       name: WalkingDown_1
       rect:
         serializedVersion: 2
-        x: 21
+        x: 19
         y: 1
-        width: 54
+        width: 58
         height: 100
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
