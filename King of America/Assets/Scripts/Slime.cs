@@ -11,6 +11,7 @@ public class Slime : MonoBehaviour {
 
 	private Rigidbody2D myBody;
 	private Vector2 direction;
+	private CircleCollider2D coll;
 
 	private bool moving;
 	public float timeBetweenMovements;
@@ -34,6 +35,7 @@ public class Slime : MonoBehaviour {
 
 	void Start()
 	{
+		coll = GetComponent<CircleCollider2D> ();
 		anim = GetComponent<Animator> ();
 		health = maximumHealth;
 		myBody = this.gameObject.GetComponent<Rigidbody2D> ();
@@ -46,6 +48,7 @@ public class Slime : MonoBehaviour {
 		HealthBar.GetComponent<SpriteRenderer> ().transform.localScale = new Vector3 (Mathf.Clamp(health / maximumHealth,0, 1f), HealthBar.GetComponent<SpriteRenderer> ().transform.localScale.y, HealthBar.GetComponent<SpriteRenderer> ().transform.localScale.z);
 		anim.SetFloat ("hp", health);
 		if (commenceDestruction) {
+			coll.enabled = false;
 			destroyTimer -= Time.deltaTime;
 			myBody.velocity = Vector2.zero;
 		}
