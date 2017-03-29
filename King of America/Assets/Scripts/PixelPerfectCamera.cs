@@ -4,11 +4,19 @@ using UnityEngine;
 
 public class PixelPerfectCamera : MonoBehaviour {
 
+
+	Camera camera;
+
 	void Start()
 	{
-		var camera = GetComponent<Camera> ();
-		if (camera.orthographic) {
-			camera.orthographicSize = (Screen.height / 2f) / 100f;
-		}
+		camera = GetComponent<Camera> ();
+		
+	}
+
+	void FixedUpdate()
+	{
+		
+
+		camera.orthographicSize = (Screen.height / 100f) / 2f;
 	}
 }
