@@ -26,10 +26,10 @@ public class PlayerMovement : MonoBehaviour {
 	private int amountPressedW;
 	private int amountPressedS;
 
-	float dashX;
-	float dashY;
+	private bool dashing;
 	private float dashTime;
-	float dTime= .15f;
+	public float dTime= .15f;
+	Vector3 DashD;
 
 	void Start()
 	{
@@ -51,11 +51,10 @@ public class PlayerMovement : MonoBehaviour {
 			stamina = maximumStamina;
 
 		dashTime -= Time.deltaTime;
-		if (dashTime <= 0f) {
-			dashX = 0;
-			dashY = 0;
+		dashing = dashTime > 0;
+		if (!dashing) {
+			DashD = Vector3.zero;
 		}
-
 		if (health < 0)
 			health = 0;
 		Animation ();
@@ -83,6 +82,9 @@ public class PlayerMovement : MonoBehaviour {
 	void Dash()
 	{
 		//Right Dash
+	
+
+			/*
 		if (Input.GetKeyDown (KeyCode.D)) {
 			amountPressedD += 1;
 			amountPressedA = 0;
@@ -104,7 +106,7 @@ public class PlayerMovement : MonoBehaviour {
 			dashX = 0f;
 			dashDelay = 0;
 		}
-
+		
 		//Left Dash
 		if (Input.GetKeyDown (KeyCode.A)) {
 			amountPressedA += 1;
@@ -174,11 +176,22 @@ public class PlayerMovement : MonoBehaviour {
 			dashY = 0f;
 			dashDelay = 0;
 		}
+		*/
 	}
 
 	void Movement(){
-		
-		myBody.velocity = new Vector2 (Input.GetAxisRaw("Horizontal") + dashX ,Input.GetAxisRaw("Vertical") + dashY) * speed * Time.deltaTime;
+		if (Input.GetKeyDown(KeyCode.LeftControl) && dashing == false && stamina >= 5f) {
+			stamina -= 5f;
+			//GameObject beam = Instantiate (projectile, this.transform.position, Quaternion.identity) as GameObject;
+			Vector3 sp = Camera.main.WorldToScreenPoint (transform.position);
+			Vector3 dir = (Input.mousePosition - sp).normalized;
+			//this.gameObject.GetComponent<Rigidbody2D> ().velocity = dir * 15f;
+			DashD = dir * 9f;
+			dashTime = dTime;
+
+		}
+		if (!dashing)
+			myBody.velocity = new Vector2 (Input.GetAxisRaw("Horizontal") + DashD.x ,Input.GetAxisRaw("Vertical") + DashD.y) * speed * Time.deltaTime;
 		if (Input.GetAxisRaw ("Horizontal") != 0 && Input.GetAxisRaw ("Vertical") != 0) {
 			anim.SetBool ("diagonal", true);
 		}
