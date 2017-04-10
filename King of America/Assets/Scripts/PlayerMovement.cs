@@ -31,6 +31,11 @@ public class PlayerMovement : MonoBehaviour {
 	public float dTime= .15f;
 	Vector3 DashD;
 
+	private bool attackingMove;
+	private float attackTime;
+	Vector3 attackD;
+	private float CD;
+
 	void Start()
 	{
 		myBody = GetComponent<Rigidbody2D> ();
@@ -44,17 +49,13 @@ public class PlayerMovement : MonoBehaviour {
 		healthBar.transform.localScale = new Vector3 (health / maximumHealth, healthBar.transform.localScale.y, healthBar.transform.localScale.z);
 		staminaBar.transform.localScale = new Vector3 (stamina / maximumStamina, staminaBar.transform.localScale.y, staminaBar.transform.localScale.z);
 		isDead = health <= 0; // if health is less than or equal to zero, then player is dead.
-
+		Attack();
 		if (stamina < maximumStamina)
 			stamina += .03f;
 		else if (stamina > maximumStamina)
 			stamina = maximumStamina;
 
-		dashTime -= Time.deltaTime;
-		dashing = dashTime > 0;
-		if (!dashing) {
-			DashD = Vector3.zero;
-		}
+
 		if (health < 0)
 			health = 0;
 		Animation ();
@@ -62,8 +63,20 @@ public class PlayerMovement : MonoBehaviour {
 	}
 
 	void FixedUpdate () {
-		if (!isDead && !isAttacking) {
+		if (!isDead) {
 			Movement ();
+		}
+	}
+
+	void Attack()
+	{
+		CD -= Time.deltaTime;
+
+		attackTime -= Time.deltaTime;
+		attackingMove = attackTime > 0;
+
+		if (!attackingMove) {
+			attackD = Vector2.zero;
 		}
 	}
 
@@ -79,12 +92,56 @@ public class PlayerMovement : MonoBehaviour {
 		anim.SetFloat ("speedY", myBody.velocity.y);
 	}
 
+
+	void Movement(){
+		if (Input.GetMouseButtonDown (0) && CD <= 0f) {
+			CD = 1f;
+			Vector3 sp = Camera.main.WorldToScreenPoint (transform.position);
+			Vector3 dir = (Input.mousePosition - sp).normalized;
+			attackD = dir * 1f;
+			anim.SetTrigger ("attack");
+			attackTime = .1f;
+		}
+		isAttacking = CD > 0f;
+		if (Input.GetKeyDown(KeyCode.LeftControl) && dashing == false &&  !isAttacking && stamina >= 5f) {
+			stamina -= 5f;
+			//GameObject beam = Instantiate (projectile, this.transform.position, Quaternion.identity) as GameObject;
+			Vector3 sp = Camera.main.WorldToScreenPoint (transform.position);
+			Vector3 dir = (Input.mousePosition - sp).normalized;
+			//this.gameObject.GetComponent<Rigidbody2D> ().velocity = dir * 15f;
+			DashD = dir * 9f;
+			dashTime = dTime;
+
+		}
+		dashing = dashTime > 0;
+		if (!dashing && !isAttacking)
+			myBody.velocity = new Vector2 (Input.GetAxisRaw ("Horizontal") + DashD.x + attackD.x, Input.GetAxisRaw ("Vertical") + DashD.y + attackD.y) * speed * Time.deltaTime;
+		else if (dashing && !isAttacking) {
+			myBody.velocity = new Vector2 (DashD.x,DashD.y) * speed * Time.deltaTime;
+		}
+		else if (!dashing && isAttacking) {
+			myBody.velocity = new Vector2 (attackD.x,attackD.y) * speed * Time.deltaTime;
+		}
+		if (Input.GetAxisRaw ("Horizontal") != 0 && Input.GetAxisRaw ("Vertical") != 0) {
+			anim.SetBool ("diagonal", true);
+		}
+		else {
+			anim.SetBool ("diagonal", false);
+		}
+
+	}
 	void Dash()
 	{
-		//Right Dash
-	
+		
+		dashTime -= Time.deltaTime;
 
-			/*
+		if (!dashing) {
+			DashD = Vector2.zero;
+		}
+		//Right Dash
+
+
+		/*
 		if (Input.GetKeyDown (KeyCode.D)) {
 			amountPressedD += 1;
 			amountPressedA = 0;
@@ -177,28 +234,6 @@ public class PlayerMovement : MonoBehaviour {
 			dashDelay = 0;
 		}
 		*/
-	}
-
-	void Movement(){
-		if (Input.GetKeyDown(KeyCode.LeftControl) && dashing == false && stamina >= 5f) {
-			stamina -= 5f;
-			//GameObject beam = Instantiate (projectile, this.transform.position, Quaternion.identity) as GameObject;
-			Vector3 sp = Camera.main.WorldToScreenPoint (transform.position);
-			Vector3 dir = (Input.mousePosition - sp).normalized;
-			//this.gameObject.GetComponent<Rigidbody2D> ().velocity = dir * 15f;
-			DashD = dir * 9f;
-			dashTime = dTime;
-
-		}
-		if (!dashing)
-			myBody.velocity = new Vector2 (Input.GetAxisRaw("Horizontal") + DashD.x ,Input.GetAxisRaw("Vertical") + DashD.y) * speed * Time.deltaTime;
-		if (Input.GetAxisRaw ("Horizontal") != 0 && Input.GetAxisRaw ("Vertical") != 0) {
-			anim.SetBool ("diagonal", true);
-		}
-		else {
-			anim.SetBool ("diagonal", false);
-		}
-
 	}
 
 }

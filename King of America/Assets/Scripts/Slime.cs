@@ -27,7 +27,7 @@ public class Slime : MonoBehaviour {
 	public bool hurt;
 	public GameObject HealthBar;
 	public GameObject damageBurst;
-	Animator anim;
+	private Animator anim;
 
 	[HideInInspector]
 	public bool commenceDestruction;
